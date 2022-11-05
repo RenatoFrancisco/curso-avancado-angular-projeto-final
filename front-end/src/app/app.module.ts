@@ -12,7 +12,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NavegacaoModule
+    NavegacaoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
