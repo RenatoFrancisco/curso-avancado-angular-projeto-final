@@ -1,8 +1,11 @@
 import { HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { throwError } from "rxjs";
 
+import { LocalStorageUtils } from "../utils/localstorage";
+
 export abstract class BaseService {
 
+    public LocalStorage = new LocalStorageUtils();
     protected UrlServiceV1: string = 'http://localhost:5001/api/v1/';
 
     protected obterHeaderJson() {
@@ -23,12 +26,12 @@ export abstract class BaseService {
         if (response instanceof HttpErrorResponse) {
 
             if (response.statusText === 'Unknown Error') {
-                customError.push('Ocorreur um erro desconhecido');
+                customError.push('Ocorreu um erro desconhecido');
                 response.error.errors = customError;
             }
         }
 
         console.error(response);
-        return throwError(() => new Error(response));
+        return throwError(() => new HttpErrorResponse(response));
     }
 }
