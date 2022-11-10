@@ -8,13 +8,16 @@ import { MenuComponent } from "./menu/menu.component";
 import { HomeComponent } from "./home/home.component";
 import { FooterComponent } from "./footer/footer.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { MenuLoginComponent } from './menu-login/menu-login.component';
 
 @NgModule({
     declarations: [
         MenuComponent,
+        MenuLoginComponent,
         HomeComponent,
         FooterComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        MenuLoginComponent
     ],
     imports: [
         CommonModule,
@@ -23,6 +26,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
     ],
     exports: [
         MenuComponent,
+        MenuLoginComponent,
         HomeComponent,
         FooterComponent,
         NotFoundComponent
