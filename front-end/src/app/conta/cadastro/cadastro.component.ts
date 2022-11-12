@@ -26,6 +26,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   genericVallidator!: GenericValidator;
   displayMessage:  DisplayMessage = {};
 
+  mudancasNaoSalvas: boolean;
+
   constructor(private fb: FormBuilder, 
               private contaService: ContaService,
               private router: Router,
@@ -69,6 +71,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
 
       merge(...controlBlurs).subscribe(() => {
         this.displayMessage = this.genericVallidator.processarMensagens(this.cadastroForm);
+        this.mudancasNaoSalvas = true;
       });
   }
 
@@ -82,6 +85,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
           error: (falha) => this.processarFalha(falha),
           complete: () => console.log('Adicionar usuário foi completado!')
         });
+
+        this.mudancasNaoSalvas = false;
     }
   }
 
