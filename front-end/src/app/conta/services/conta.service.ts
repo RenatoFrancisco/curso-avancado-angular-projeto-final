@@ -21,8 +21,13 @@ export class ContaService extends BaseService {
         return response;
     }
 
-    login(usuario: Usuario) {
-        
-    }
+    login(usuario: Usuario): Observable<Usuario> {
+        let response = this.httpCliente
+            .post(this.UrlServiceV1 + 'entrar', usuario, this.obterHeaderJson())
+            .pipe(
+                map(this.extractData),
+                catchError(this.serviceError));
 
+        return response;
+    }
 }
