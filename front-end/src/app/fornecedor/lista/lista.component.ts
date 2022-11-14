@@ -8,16 +8,16 @@ import { Fornecedor } from '../models/fornecedor';
 })
 export class ListaComponent implements OnInit {
 
-  // public fornecedores: Fornecedor[];
-  // errorMessage: string;
+  public fornecedores: Fornecedor[];
+  errorMessage: string;
 
-  // constructor(private fornecedorService: FornecedorService) { }
+  constructor(private fornecedorService: FornecedorService) { }
 
   ngOnInit(): void {
-    // this.fornecedorService.obterTodos()
-    //   .subscribe({
-    //     next: (fornecedores) => this.fornecedores = fornecedores,
-    //     error: () => this.errorMessage
-    //   });
+    this.fornecedorService.obterTodos()
+      .subscribe({
+        next: (fornecedores) => this.fornecedores = fornecedores,
+        error: () => this.errorMessage
+      });
   }
 }

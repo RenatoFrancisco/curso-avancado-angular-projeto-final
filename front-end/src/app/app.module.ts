@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     ToastrModule.forRoot(),
     AppRoutingModule,
     NavegacaoModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

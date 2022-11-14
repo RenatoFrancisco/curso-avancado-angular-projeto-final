@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControlName, AbstractControl } 
 import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
+import { NgBrazilValidators } from 'ng-brazil';
+import { utilsBr } from 'js-brasil';
 
 import { Fornecedor } from '../models/fornecedor';
 import { FornecedorService } from '../services/fornecedor.service';
@@ -24,6 +26,8 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
 
   textoDocumento: string = 'CPF (requerido)';
   formResult: string = '';
+
+  MASKS = utilsBr.MASKS;
   
   constructor(private fb: FormBuilder,
     private fornecedorService: FornecedorService,
@@ -69,7 +73,7 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
 
     this.fornecedorForm = this.fb.group({
       nome: ['', [Validators.required]],
-      documento: ['', [Validators.required]],
+      documento: ['', [Validators.required, NgBrazilValidators.cpf]],
       ativo: ['', [Validators.required]],
       tipoFornecedor: ['', [Validators.required]],
 
