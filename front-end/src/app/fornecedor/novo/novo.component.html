@@ -29,7 +29,7 @@
                     <div>
                         <input class="form-control" id="documento" type="text" placeholder="{{ textoDocumento }}" 
                         formControlName="documento"
-                        cpf [textMask]="{mask: MASKS.cpf.textMask}"
+                        cpf [textMask]="tipoFornecedorForm().value === '1' ? {mask: MASKS.cpf.textMask}: {mask: MASKS.cnpj.textMask}"
                         [ngClass]="{'is-invalid': displayMessage.documento }"
                     />
 
