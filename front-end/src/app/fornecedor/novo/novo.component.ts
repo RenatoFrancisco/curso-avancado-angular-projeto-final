@@ -81,7 +81,7 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
         logradouro: ['', [Validators.required]],
         numero: ['', [Validators.required]],
         complemento: [''],
-        bairro: ['', [Validators.required]],
+        bairro: ['', [Validators.required, NgBrazilValidators.cep]],
         cep: ['', [Validators.required]],
         cidade: ['', [Validators.required]],
         estado: ['', [Validators.required]]
