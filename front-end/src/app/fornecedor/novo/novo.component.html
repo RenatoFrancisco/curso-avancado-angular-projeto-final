@@ -57,7 +57,8 @@
                     <div class="form-group">
                         <label class="control-label">CEP</label>
                         <div>
-                            <input class="form-control" id="cep" type="text" placeholder="CEP (requerido)" 
+                            <input class="form-control" id="cep" type="text" placeholder="CEP (requerido)"
+                            (blur)="buscarCep($event.target)"
                             formControlName="cep" 
                             cep [textMask]="{mask: MASKS.cep.textMask}"
                             cep [ngClass]="{ 'is-invalid': displayMessage.cep }" />

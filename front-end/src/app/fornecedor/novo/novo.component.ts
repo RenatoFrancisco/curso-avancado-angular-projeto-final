@@ -73,7 +73,7 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
 
     this.fornecedorForm = this.fb.group({
       nome: ['', [Validators.required]],
-      documento: ['', [Validators.required, NgBrazilValidators.cpf]],
+      documento: ['', [Validators.required]],
       ativo: ['', [Validators.required]],
       tipoFornecedor: ['', [Validators.required]],
 
@@ -81,7 +81,7 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
         logradouro: ['', [Validators.required]],
         numero: ['', [Validators.required]],
         complemento: [''],
-        bairro: ['', [Validators.required, NgBrazilValidators.cep]],
+        bairro: ['', [Validators.required]],
         cep: ['', [Validators.required]],
         cidade: ['', [Validators.required]],
         estado: ['', [Validators.required]]
@@ -124,9 +124,9 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
     return this.fornecedorForm.get('documento');
   }
 
-  buscarCep(cep: string) {
+  buscarCep(cep: any) {
 
-    cep = StringUtils.somenteNumeros(cep);
+    cep = StringUtils.somenteNumeros(cep.value);
     if (cep.length < 8) return;
 
     this.fornecedorService.consultarCep(cep)
