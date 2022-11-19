@@ -119,7 +119,7 @@
                                 {{ fornecedor.endereco.bairro }}
                             </td>
                             <td>
-                                {{ fornecedor.endereco.cep }}
+                                {{ fornecedor.endereco.cep | cep }}
                             </td>
                             <td>
                                 {{ fornecedor.endereco.cidade }}
@@ -162,7 +162,7 @@
                 <div class="form-group">
                     <label class="control-label">CEP</label>
                     <div>
-                        <!-- <input class="form-control" id="cep" type="text" placeholder="CEP (requerido)" (blur)="buscarCep($event.target.value)" formControlName="cep" /> -->
+                        <input class="form-control" id="cep" type="text" placeholder="CEP (requerido)" (blur)="buscarCep($event.target)" formControlName="cep" />
                         <span class="text-danger" *ngIf="displayMessage.cep">
                         <p [innerHTML]="displayMessage.cep"></p>
                     </span>

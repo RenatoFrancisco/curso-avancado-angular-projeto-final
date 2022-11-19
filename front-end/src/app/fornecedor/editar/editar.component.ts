@@ -171,9 +171,9 @@ export class EditarComponent extends FormBaseComponent implements OnInit {
     return this.fornecedorForm.get('tipoFornecedor');
   }
 
-  buscarCep(cep: string) {
+  buscarCep(cep: any) {
 
-    cep = StringUtils.somenteNumeros(cep);
+    cep = StringUtils.somenteNumeros(cep.value);
     if (cep.length < 8) return;
 
     this.fornecedorService.consultarCep(cep)
