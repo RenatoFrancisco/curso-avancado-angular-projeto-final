@@ -7,7 +7,6 @@ import { ListaComponent } from './lista/lista.component';
 import { EditarComponent } from './editar/editar.component';
 import { DetalhesComponent } from './detalhes/detalhes.component';
 import { ExcluirComponent } from './excluir/excluir.component';
-// import { FornecedorResolve } from './services/fornecedor.resolve';
 import { FornececedorGuard } from './services/fornecedor.guard';
 import { FornecedorResolve } from './services/fornecedor.resolve';
 
