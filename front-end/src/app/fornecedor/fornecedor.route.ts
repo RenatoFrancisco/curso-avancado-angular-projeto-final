@@ -17,13 +17,13 @@ const fornecedorRouterConfig: Routes = [
             { path: 'listar-todos', component: ListaComponent },
             {
                 path: 'adicionar-novo', component: NovoComponent,
-                // canDeactivate: [FornececedorGuard],
-                // canActivate: [FornececedorGuard],
+                canDeactivate: [FornececedorGuard],
+                canActivate: [FornececedorGuard],
                 data: [{ claim: { nome: 'Fornecedor', valor: 'Adicionar'}}]
             },
             {
                 path: 'editar/:id', component: EditarComponent,
-                // canActivate: [FornececedorGuard],
+                canActivate: [FornececedorGuard],
                 data: [{ claim: { nome: 'Fornecedor', valor: 'Atualizar' } }],
                 resolve: {
                     fornecedor: FornecedorResolve
@@ -37,7 +37,7 @@ const fornecedorRouterConfig: Routes = [
             },
             {
                 path: 'excluir/:id', component: ExcluirComponent,
-                // canActivate: [FornececedorGuard],
+                canActivate: [FornececedorGuard],
                 data: [{ claim: { nome: 'Fornecedor', valor: 'Excluir' } }],
                 resolve: {
                     fornecedor: FornecedorResolve
