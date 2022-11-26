@@ -100,7 +100,7 @@ export class NovoComponent extends FormBaseComponent implements OnInit {
         super.validarFormulario(this.fornecedorForm);
       });
 
-      super.configurarValidacaoFormularioBase(this.formInputElements, this.fornecedorForm)
+      super.configurarValidacaoFormularioBase(this.formInputElements, this.fornecedorForm);
   }
     
   trocarValidacaoDocumento() {
