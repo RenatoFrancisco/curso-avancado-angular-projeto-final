@@ -26,6 +26,7 @@
     "ng-brazil": "^2.4.5",
     "ng2-validation": "^4.2.0",
     "ngx-custom-validators": "^11.0.1",
+    "ngx-image-cropper": "^6.3.1",
     "ngx-spinner": "^14.0.0",
     "ngx-toastr": "^15.2.1",
     "rxjs": "~7.5.0",

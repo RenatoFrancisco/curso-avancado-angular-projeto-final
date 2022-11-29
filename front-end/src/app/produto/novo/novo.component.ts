@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Observable, fromEvent, merge } from 'rxjs';
 
 import { ToastrService } from 'ngx-toastr';
-// import { ImageCroppedEvent, ImageTransform, Dimensions } from 'ngx-image-cropper';
+import { ImageCroppedEvent, ImageTransform, Dimensions } from 'ngx-image-cropper';
 
 import { ProdutoService } from '../services/produto.service';
 import { CurrencyUtils } from 'src/app/utils/currency-utils';
@@ -27,7 +27,7 @@ export class NovoComponent extends ProdutoBaseComponent implements OnInit {
   scale = 1;
   showCropper = false;
   containWithinAspectRatio = false;
-  // transform: ImageTransform = {};
+  transform: ImageTransform = {};
   imageURL: string;
   imagemNome: string;
 
@@ -95,15 +95,19 @@ export class NovoComponent extends ProdutoBaseComponent implements OnInit {
     this.imageChangedEvent = event;
     this.imagemNome = event.currentTarget.files[0].name;
   }
-  // imageCropped(event: ImageCroppedEvent) {
-  //   this.croppedImage = event.base64;
-  // }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+
   imageLoaded() {
     this.showCropper = true;
   }
-  // cropperReady(sourceImageDimensions: Dimensions) {
-  //   console.log('Cropper ready', sourceImageDimensions);
-  // }
+
+  cropperReady(sourceImageDimensions: Dimensions) {
+    console.log('Cropper ready', sourceImageDimensions);
+  }
+
   loadImageFailed() {
     this.errors.push('O formato do arquivo ' + this.imagemNome + ' não é aceito.');
   }
