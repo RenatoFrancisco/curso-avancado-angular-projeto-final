@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ExcluirComponent  {
 
-  // imagens: string = environment.imagensUrl;
+  imagens: string = environment.imagensUrl;
   produto: Produto;
 
   constructor(private produtoService: ProdutoService,

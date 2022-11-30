@@ -15,7 +15,7 @@ import { ProdutoBaseComponent } from '../produto-form.base.component';
 })
 export class EditarComponent extends ProdutoBaseComponent implements OnInit {
 
-  // imagens: string = environment.imagensUrl;
+  imagens: string = environment.imagensUrl;
 
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
@@ -59,7 +59,7 @@ export class EditarComponent extends ProdutoBaseComponent implements OnInit {
     });
 
     // utilizar o [src] na imagem para evitar que se perca após post
-    // this.imagemOriginalSrc = this.imagens + this.produto.imagem;
+    this.imagemOriginalSrc = this.imagens + this.produto.imagem;
   }
 
   ngAfterViewInit(): void {

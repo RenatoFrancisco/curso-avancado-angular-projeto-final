@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ListaComponent implements OnInit {
 
-  // imagens: string = environment.imagensUrl;
+  imagens: string = environment.imagensUrl;
 
   public produtos: Produto[];
   errorMessage: string;
