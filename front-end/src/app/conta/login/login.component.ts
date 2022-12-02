@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CustomValidators } from 'ng2-validation';
 import { ToastrService } from 'ngx-toastr';
 
-import { DisplayMessage, GenericValidator, ValidationMessages } from 'src/app/utils/generic-form-validation';
+import { FormBaseComponent } from 'src/app/base-components/form-base.component';
 import { Usuario } from '../models/usuario';
 import { ContaService } from '../services/conta.service';
 
@@ -14,14 +14,10 @@ import { ContaService } from '../services/conta.service';
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends FormBaseComponent implements OnInit {
 
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
-  validationMessages!: ValidationMessages;
-  genericValidator: GenericValidator;
-  displayMessage:  DisplayMessage = {};
-  
   errors: any[] = [];
   loginForm: FormGroup;
   usuario: Usuario;
@@ -33,6 +29,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService) {
+
+    super();
 
     this.validationMessages = {
       email: {
@@ -46,7 +44,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
-    this.genericValidator = new GenericValidator(this.validationMessages);
+    super.configurarMensagensValidacaoBase(this.validationMessages);
   }
 
   ngOnInit(): void {
